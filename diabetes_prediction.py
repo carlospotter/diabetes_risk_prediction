@@ -14,12 +14,16 @@ data = load_data()
 
 st.title('Diabetes Risk Prediction')
 # Data app explanation:
-#st.write("")
+st.write('This data app was proposed by  M. M. Faniqul IslamEmail, Rahatara Ferdousi, Sadikur Rahman and Humayra Yasmin Bushra in the paper "Likelihood Prediction of Diabetes at Early Stage Using Data Mining Techniques", and used the data available in the UCI Machine Learning Repository. Additional details are presented in the sidebar.')
+
+st.markdown()
 
 data_head = st.checkbox("Show sample data")
 if data_head:
     st.write(data.head())
 
+
+st.write("This form does not intend diagnose or prevent any disease.")
 
 # Start the form:
 st.subheader("Please fill the form below with your age and symptomns to check the diabetes risk: ")
