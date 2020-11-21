@@ -59,8 +59,11 @@ forest = RandomForestClassifier(n_estimators=100, n_jobs=-1)
 forest.fit(X,y)
 
 if st.button("Check!"):
-    y_pred = forest.predict(X_pred)
-    if y_pred == 0:
-        st.write("The symptoms selected do not seem to be caused by diabetes.")
+    if sum([cp1,cp2,csw,cw ,cp3,cgt,cvb,cit,cir,cdh,cpp,cms,cal,cob]) == 0:
+        st.write("Please check the symptoms that apply!")
     else:
-        st.write("It is recommended to visit your doctor to check the cause of the symptoms.")
+        y_pred = forest.predict(X_pred)
+        if y_pred == 0:
+            st.write("The symptoms selected do not seem to be caused by diabetes.")
+        else:
+            st.write("It is recommended to visit your doctor to check the cause of the symptoms.")
