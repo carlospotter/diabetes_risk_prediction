@@ -16,14 +16,17 @@ data = load_data()
 def read_markdown_file(markdown_file):
     return Path(markdown_file).read_text()
 
-intro_markdown = read_markdown_file("README.md")
+intro_markdown = read_markdown_file("./mds/header.md")
 st.markdown(intro_markdown, unsafe_allow_html=True)
-
-st.write("This form does not intend diagnose or prevent any disease.")
 
 data_head = st.checkbox("Show sample data")
 if data_head:
     st.write(data.head())
+
+about_markdown = read_markdown_file("./mds/about.md")
+st.markdown(about_markdown, unsafe_allow_html=True)
+
+st.subheader("This form does not intend diagnose or prevent any disease.")
 
 # Start the form:
 st.subheader("Please fill the form below with your age and symptomns to check the diabetes risk: ")
@@ -67,3 +70,4 @@ if st.button("Check!"):
             st.write("The symptoms selected do not seem to be caused by diabetes.")
         else:
             st.write("It is recommended to visit your doctor to check the cause of the symptoms.")
+
